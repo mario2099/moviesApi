@@ -12,8 +12,8 @@ import java.util.List;
 
 @Document(collection="movies")
 @Data //this annotation takes care of all getters, setters and string methods
-@AllArgsConstructor //is an addition for creating a constructor that takes all this private field as argument
-@NoArgsConstructor //another constructor that takes no parameters
+@AllArgsConstructor //generates a constructor with 1 parameter for each field in your class.
+@NoArgsConstructor //will generate a constructor with no parameters. If this is not possible (because of final fields), a compiler error will result instead
 public class Movie {
     @Id
     private ObjectId id;
