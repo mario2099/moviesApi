@@ -18,6 +18,7 @@ public class Movie {
     @Id
     private ObjectId id;
     private String imdbId;
+    private String title;
     private String releaseDate;
     private String trailerLink;
     private String poster;
@@ -25,5 +26,15 @@ public class Movie {
     private List<String> backdrops;
     //This annotation is used only to demonstrate some features of springboard and MongoDB data, but the right way to go is without it
     @DocumentReference //this will cause the database to only store the IDs of the review and the reviews will be in a separate collection. It is a manual reference relationship
-    private List<Review> reviewIds; //without the annotation, this will be an embedded relationship and all the reviews related to the movie will be added to this list
+    private List<Review> reviewIds;//without the annotation, this will be an embedded relationship and all the reviews related to the movie will be added to this list
+
+    public Movie(String imdbId, String title, String releaseDate, String trailerLink, String poster, List<String> backdrops, List<String> genres) {
+        this.imdbId = imdbId;
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.trailerLink = trailerLink;
+        this.poster = poster;
+        this.backdrops = backdrops;
+        this.genres = genres;
+    }
 }
